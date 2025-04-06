@@ -24,6 +24,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         // 物理移動，防止卡頓
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rb.MovePosition(rb.position + movement * 5 * Time.fixedDeltaTime);
     }
 }
