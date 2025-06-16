@@ -7,6 +7,7 @@ TagManager:
   - GreenOrb
   - PowerUp
   - projectile
+  - Goal
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - GreenPlayer
   - NormalPlayer
   - Wall
-  - 
-  - 
+  - EnergyBall
+  - Goal
   - 
   - 
   - 
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: ForeGround
+    uniqueID: 1801978907
     locked: 0

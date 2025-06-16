@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerPowerUp : MonoBehaviour
 {
-    public bool hasPower = false; // 狀態：有吃到球？
+    public bool hasPower = false;
+    public int powerCount = 0;
+    public float sizeIncrease = 0.1f;
+    public Color poweredColor = Color.green;
     private SpriteRenderer sr;
 
     void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
+        if (sr == null)
+            sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -19,27 +23,21 @@ public class PlayerPowerUp : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("PowerUp") && !hasPower)
-        {
-            Destroy(other.gameObject);
-            hasPower = true;
-            sr.color = Color.green;
-            transform.localScale *= 1.5f;
+            if (other.CompareTag("PowerUp") && !hasPower)
+            {
+                powerCount++;
+                Destroy(other.gameObject);
 
+                // 變大
+                transform.localScale += new Vector3(sizeIncrease, sizeIncrease, 0);
+
+                // 變色
+                sr.color = poweredColor;
             // 找出所有 ConditionalWall 並啟用碰撞器
             ConditionalWall[] walls = FindObjectsOfType<ConditionalWall>();
             foreach (ConditionalWall wall in walls)
             {
                 wall.EnableWall(); // 呼叫牆的方法
-            }
-        }
-        if (other.CompareTag("Player"))
-        {
-            PlayerShooting ps = other.GetComponent<PlayerShooting>();
-            if (ps != null)
-            {
-                ps.AddAmmo(); // 增加射擊次數
-                Destroy(gameObject); // 吸收球體
             }
         }
     } 
