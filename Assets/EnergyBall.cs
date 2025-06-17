@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnergyBall : MonoBehaviour
 {
+    public bool isFromPlayer = false; // 射出球 = true / 原始球 = false
     // Start is called before the first frame update
     void Start()
     {
@@ -17,10 +18,17 @@ public class EnergyBall : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && isFromPlayer)
         {
-            other.GetComponent<PlayerPowerUp>().powerCount++;
-            Destroy(gameObject);
+            PlayerShooting player = other.GetComponent<PlayerShooting>();
+            if (player != null)
+            {
+                player.energyCount++;
+                player.GetComponent<SpriteRenderer>().color = Color.green;
+                player.transform.localScale += Vector3.one * 0.1f;
+
+                Destroy(gameObject); //  被吸收後消失
+            }
         }
     }
 }

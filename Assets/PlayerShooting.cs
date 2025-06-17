@@ -54,14 +54,15 @@ public class PlayerShooting : MonoBehaviour
         Vector2 shootDir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - shootPoint.position);
         shootDir.Normalize();
 
-        ballRb.gravityScale = 0;
+        ballRb.gravityScale = 1; //  有重力壓按鈕
         ballRb.AddForce(shootDir * shootForce, ForceMode2D.Impulse);
 
-        // 後座力.
+        //  後座力
         rb.AddForce(-shootDir * shootForce * 0.5f, ForceMode2D.Impulse);
 
-        // 讓射出的球不再能被吸收
-        ball.tag = "Untagged";
-        ball.GetComponent<Collider2D>().isTrigger = false;
+        //  標記這是從玩家射出的球
+        EnergyBall energyScript = ball.GetComponent<EnergyBall>();
+        if (energyScript != null)
+            energyScript.isFromPlayer = true;
     }
 }
