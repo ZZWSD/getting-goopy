@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4899329755927979752}
   - component: {fileID: 6828510012052690729}
   - component: {fileID: 7033420460348203417}
+  - component: {fileID: 5010074436318822215}
   - component: {fileID: 2047168609889693114}
   - component: {fileID: -7007042008275596553}
   m_Layer: 9
@@ -122,6 +123,41 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!58 &5010074436318822215
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9121305185859012852}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.09
 --- !u!50 &2047168609889693114
 Rigidbody2D:
   serializedVersion: 4
@@ -161,4 +197,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4de31a69c16d98499c12c934d538910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isFromPlayer: 0
+  isFromPlayer: 1

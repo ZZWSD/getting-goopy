@@ -41,13 +41,13 @@ public class ConditionalWall : MonoBehaviour
         }
     }
         // 為了讓牆能在重新進入時恢復碰撞
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Player"))
-            {
-                GetComponent<Collider2D>().enabled = true;
-            }
-        }
+        //private void OnCollisionExit2D(Collision2D collision)
+        //{
+        //    if (collision.gameObject.CompareTag("Player"))
+        //    {
+        //        GetComponent<Collider2D>().enabled = true;
+        //    }
+        //}
     public void EnableWall()
     {
         col.enabled = true;   // 變色後才擋住玩家

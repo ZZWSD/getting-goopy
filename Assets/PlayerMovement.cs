@@ -24,6 +24,22 @@ public class PlayerController : MonoBehaviour
         float moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * moveSpeed, rb.velocity.y);
 
+        Vector3 dir;
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            dir.x = 1;
+            dir.y = 1;
+            dir.z = 1;
+            this.transform.localScale = dir;
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            dir.x = -1;
+            dir.y = 1;
+            dir.z = 1;
+            this.transform.localScale = dir;
+        }
+
         // ¶a≠±¿À¨d
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
